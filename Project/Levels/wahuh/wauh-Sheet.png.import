@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wauh-Sheet.png-88dd1f7248156346ee427f722a9395bf.stex"
+path="res://.import/wauh-Sheet.png-53655308b41b25536ce51de8ffd8ebd2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://wahuh/wauh-Sheet.png"
-dest_files=[ "res://.import/wauh-Sheet.png-88dd1f7248156346ee427f722a9395bf.stex" ]
+source_file="res://Levels/wahuh/wauh-Sheet.png"
+dest_files=[ "res://.import/wauh-Sheet.png-53655308b41b25536ce51de8ffd8ebd2.stex" ]
 
 [params]
 
