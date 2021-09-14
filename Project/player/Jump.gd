@@ -16,9 +16,9 @@ func _physics_process(delta):
 
 	owner.velocity.y += get_gravity() * delta
 	
+	if Input.is_action_just_released("jump") && owner.velocity.y < 0:
+		owner.velocity.y = 0
 	
-	if Input.is_action_just_pressed("jump") and owner.is_on_floor():
-		jump()
 	
 	owner.velocity = owner.move_and_slide(owner.velocity, Vector2.UP)
 
