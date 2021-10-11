@@ -1,105 +1,143 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Enemies/Skelly/Skelly Scripts/Skelly.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/Skelly/Skelly Assets/Skelly Grafx/Eskeli.png" type="Texture" id=2]
 [ext_resource path="res://Enemies/Skelly/Skelly Assets/SkellyH.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/Skelly/Idle.gd" type="Script" id=4]
+[ext_resource path="res://Enemies/Skelly/SkellyFSM.gd" type="Script" id=5]
+[ext_resource path="res://Enemies/Skelly/Chasing.gd" type="Script" id=6]
+[ext_resource path="res://Enemies/Spotted.tscn" type="PackedScene" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 96, 96, 96 )
+region = Rect2( 0, 384, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
-region = Rect2( 96, 96, 96, 96 )
+region = Rect2( 96, 384, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
-region = Rect2( 192, 96, 96, 96 )
+region = Rect2( 192, 384, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
-region = Rect2( 288, 96, 96, 96 )
+region = Rect2( 288, 384, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 96, 96 )
+region = Rect2( 0, 480, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
-region = Rect2( 96, 0, 96, 96 )
+region = Rect2( 96, 480, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
-region = Rect2( 192, 0, 96, 96 )
+region = Rect2( 0, 96, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 288, 0, 96, 96 )
+region = Rect2( 96, 96, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 192, 96, 96 )
+region = Rect2( 192, 96, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 96, 192, 96, 96 )
+region = Rect2( 288, 96, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 192, 192, 96, 96 )
+region = Rect2( 0, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
-region = Rect2( 288, 192, 96, 96 )
+region = Rect2( 96, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 288, 96, 96 )
+region = Rect2( 192, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 96, 288, 96, 96 )
+region = Rect2( 288, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
-region = Rect2( 192, 288, 96, 96 )
+region = Rect2( 0, 192, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 2 )
+region = Rect2( 96, 192, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 192, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
+region = Rect2( 288, 192, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 288, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 288, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 288, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 2 )
 region = Rect2( 288, 288, 96, 96 )
 
-[sub_resource type="SpriteFrames" id=17]
+[sub_resource type="SpriteFrames" id=23]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 1 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 3.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
 "loop": false,
 "name": "Dead",
 "speed": 20.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 11.6574, 28.2476 )
+
+[sub_resource type="CircleShape2D" id=25]
+radius = 18.9506
 
 [node name="Skelly" type="KinematicBody2D" groups=[
 "skelly",
 ]]
 script = ExtResource( 1 )
 SkellyH = ExtResource( 3 )
+Spotted = ExtResource( 7 )
+jump_height = 68.0
+jump_time_to_peak = 0.5
+jump_time_to_descent = 0.45
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 17 )
+frames = SubResource( 23 )
 animation = "Idle"
-frame = 4
-playing = true
 
 [node name="Area2D" type="Area2D" parent="." groups=[
 "skelly",
@@ -107,14 +145,50 @@ playing = true
 position = Vector2( 2.51984, 16.8186 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 18 )
+position = Vector2( -2.75, 0 )
+shape = SubResource( 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 2.5, 16.75 )
-shape = SubResource( 18 )
+position = Vector2( -0.25, 16.75 )
+shape = SubResource( 24 )
 
 [node name="Head" type="Position2D" parent="."]
 position = Vector2( 1.96425, 0.280674 )
 
+[node name="Right" type="RayCast2D" parent="."]
+position = Vector2( 4.05, 14.2611 )
+rotation = -0.441434
+enabled = true
+
+[node name="Left" type="RayCast2D" parent="."]
+position = Vector2( 3.05605, 10.5756 )
+rotation = 0.096242
+enabled = true
+cast_to = Vector2( -25, 50 )
+
+[node name="SkellyFSM" type="Node2D" parent="."]
+script = ExtResource( 5 )
+initialState = "Idle"
+
+[node name="Idle" type="Node2D" parent="SkellyFSM"]
+script = ExtResource( 4 )
+
+[node name="Chasing" type="Node2D" parent="SkellyFSM"]
+script = ExtResource( 6 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+scale = Vector2( 14.376, 14.376 )
+shape = SubResource( 25 )
+
+[node name="Spotted" type="Position2D" parent="."]
+position = Vector2( 2.28179, -30.6634 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.239
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="SkellyFSM/Idle" method="_on_Area2D2_body_entered"]
+[connection signal="timeout" from="Timer" to="SkellyFSM/Chasing" method="_on_Timer_timeout"]

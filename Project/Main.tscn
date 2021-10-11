@@ -654,6 +654,9 @@ position = Vector2( 189.037, 493.979 )
 position = Vector2( 2.5, 4 )
 color = Color( 0.262745, 0.262745, 0.262745, 1 )
 
+[node name="Skelly" parent="." instance=ExtResource( 4 )]
+position = Vector2( 789.394, 471.952 )
+
 [node name="Water" parent="." instance=ExtResource( 3 )]
 position = Vector2( -44.0489, 7.42871 )
 
@@ -661,6 +664,3 @@ position = Vector2( -44.0489, 7.42871 )
 position = Vector2( 513.2, 310.629 )
 current = true
 smoothing_enabled = true
-
-[node name="Skelly" parent="." instance=ExtResource( 4 )]
-position = Vector2( 502.468, 465.959 )

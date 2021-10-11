@@ -30,10 +30,10 @@ func _process(delta):
 	if player.aim_up == true && player.velocity.x == 0:
 		animation.play("Aim_UP")
 		player.aim = 2
-		print(player.aim_up)
+		#print(player.aim_up)
 	elif player.velocity.x != 0:
 		player.aim_up = false
-		print(player.aim_up)
+		#print(player.aim_up)
 	# air gun stuff
 	if player.velocity.y > 0 && player.shooting == true && player.aim_up == false:
 		animation.play("Fall_G")

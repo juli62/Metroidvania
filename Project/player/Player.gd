@@ -12,7 +12,7 @@ func _ready():
 func _physics_process(delta):
 	
 	if velocity.y > 0 && shooting == false:
-		print(velocity.y)
+		#print(velocity.y)
 		sprite.play("Fall")
 	elif velocity.y < 0 && shooting == false:
 		sprite.play("Jump")	

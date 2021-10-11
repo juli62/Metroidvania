@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends "res://StateMachine/FSM.gd"
 
 
 # Declare member variables here. Examples:
@@ -8,14 +8,9 @@ extends RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"CollisionShape2D".free()
-	$Timer.start()
-	
+	initialize()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_Timer_timeout():
-	queue_free()
