@@ -465,7 +465,7 @@ pitch_scale = 1.3
 position = Vector2( 2.51984, -18.8988 )
 frames = SubResource( 88 )
 animation = "Idle"
-frame = 16
+frame = 28
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

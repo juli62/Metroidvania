@@ -25,15 +25,9 @@ onready var target = get_parent().get_node("Player")
 func _physics_process(delta):
 	motion.y += get_gravity() * delta
 	motion = move_and_slide(motion, Vector2.UP)
-		
+
 	move_and_slide(motion)
-	if $"Left".is_colliding() == false || $"Right".is_colliding() == false && is_on_floor():
-		if chasing == true && jump == false:
-				jump()
-				jump = true
-				
-	if is_on_floor():
-		jump = false	
+	
 # Called when the node enters the scene tree for the first time.
 
 	
@@ -62,7 +56,7 @@ func jump():
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "Dead":
-		pass
+		queue_free()
 	
 
 
