@@ -4,7 +4,7 @@
 [ext_resource path="res://Levels/wahuh/wauh-Sheet.png" type="Texture" id=2]
 [ext_resource path="res://icon.gd" type="Script" id=3]
 
-[sub_resource type="Shader" id=24]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 uniform vec2 scale;
@@ -24,112 +24,112 @@ void fragment() {
 	
 }"
 
-[sub_resource type="OpenSimplexNoise" id=25]
+[sub_resource type="OpenSimplexNoise" id=2]
 
-[sub_resource type="NoiseTexture" id=26]
+[sub_resource type="NoiseTexture" id=3]
 seamless = true
-noise = SubResource( 25 )
+noise = SubResource( 2 )
 
-[sub_resource type="ShaderMaterial" id=27]
-shader = SubResource( 24 )
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 1 )
 shader_param/scale = Vector2( 23.6919, 0.962604 )
-shader_param/y_zoom = 1.12246
+shader_param/y_zoom = 4.75683
 shader_param/distortion_scale = Vector2( 5, 5 )
 shader_param/intensity = 0.005
 shader_param/speed = 0.65
-shader_param/noise = SubResource( 26 )
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 96, 96 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 2 )
-region = Rect2( 96, 0, 96, 96 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 2 )
-region = Rect2( 192, 0, 96, 96 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 2 )
-region = Rect2( 288, 0, 96, 96 )
+shader_param/noise = SubResource( 3 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
-region = Rect2( 384, 0, 96, 96 )
+region = Rect2( 0, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
-region = Rect2( 480, 0, 96, 96 )
+region = Rect2( 96, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
-region = Rect2( 576, 0, 96, 96 )
+region = Rect2( 192, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 672, 0, 96, 96 )
+region = Rect2( 288, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 768, 0, 96, 96 )
+region = Rect2( 384, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 864, 0, 96, 96 )
+region = Rect2( 480, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 960, 0, 96, 96 )
+region = Rect2( 576, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
-region = Rect2( 1056, 0, 96, 96 )
+region = Rect2( 672, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
-region = Rect2( 1152, 0, 96, 96 )
+region = Rect2( 768, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 1248, 0, 96, 96 )
+region = Rect2( 864, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
-region = Rect2( 1344, 0, 96, 96 )
+region = Rect2( 960, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 2 )
-region = Rect2( 1440, 0, 96, 96 )
+region = Rect2( 1056, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 2 )
-region = Rect2( 1536, 0, 96, 96 )
+region = Rect2( 1152, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 2 )
-region = Rect2( 1632, 0, 96, 96 )
+region = Rect2( 1248, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 2 )
-region = Rect2( 1728, 0, 96, 96 )
+region = Rect2( 1344, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 2 )
-region = Rect2( 1824, 0, 96, 96 )
+region = Rect2( 1440, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 2 )
-region = Rect2( 1920, 0, 96, 96 )
+region = Rect2( 1536, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 2 )
+region = Rect2( 1632, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 2 )
+region = Rect2( 1728, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 2 )
+region = Rect2( 1824, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 2 )
+region = Rect2( 1920, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 2 )
 region = Rect2( 2016, 0, 96, 96 )
 
-[sub_resource type="SpriteFrames" id=23]
+[sub_resource type="SpriteFrames" id=27]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -138,7 +138,7 @@ animations = [ {
 [node name="Node2D" type="Node2D"]
 
 [node name="icon" type="Sprite" parent="."]
-material = SubResource( 27 )
+material = SubResource( 4 )
 position = Vector2( 531.64, 588.336 )
 scale = Vector2( 23.6919, 0.962604 )
 texture = ExtResource( 1 )
@@ -148,8 +148,8 @@ script = ExtResource( 3 )
 modulate = Color( 1, 1, 1, 0.592157 )
 position = Vector2( 0.52944, -28.8464 )
 scale = Vector2( 0.48051, 1.03885 )
-frames = SubResource( 23 )
-frame = 18
+frames = SubResource( 27 )
+frame = 1
 speed_scale = 2.0
 playing = true
 

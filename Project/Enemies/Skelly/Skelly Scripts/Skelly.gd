@@ -23,7 +23,8 @@ onready var target = get_parent().get_node("Player")
 # var a = 2
 # var b = "text"
 func _physics_process(delta):
-	motion.y += get_gravity() * delta
+	if Dead == false:
+		motion.y += get_gravity() * delta
 	motion = move_and_slide(motion, Vector2.UP)
 
 	move_and_slide(motion)

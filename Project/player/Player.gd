@@ -20,37 +20,37 @@ func _physics_process(delta):
 		velocity.y = 0
 		
 	#aiming (if this seems confusing fuck you)
-	if sprite.flip_h == false && aim == 1:
-		$Muzzle.position.x = 21.714
-		$Muzzle.position.y = -5.614
+	if sprite.flip_h == false && aim == 1: #Aim 1 = STANDING
+		$Muzzle.position.x = 6.259
+		$Muzzle.position.y = 4.544
 		$Muzzle.rotation_degrees = 0
 	elif sprite.flip_h == true && aim == 1:
-		$Muzzle.position.x = -15.704
-		$Muzzle.position.y = -5.614
+		$Muzzle.position.x = -6.441
+		$Muzzle.position.y = 4.544
 		$Muzzle.rotation_degrees = -180
-	elif sprite.flip_h == false && aim == 2:
-		$Muzzle.position.x = -8.017
-		$Muzzle.position.y = -32.959
+	elif sprite.flip_h == false && aim == 2: #Aim 2 = AIM UP
+		$Muzzle.position.x = -3.563
+		$Muzzle.position.y = -4.782
 		$Muzzle.rotation_degrees = -90
 	elif sprite.flip_h == true && aim == 2:
-		$Muzzle.position.x = 13.098
-		$Muzzle.position.y = -32.959
+		$Muzzle.position.x = 3.481
+		$Muzzle.position.y = -4.782
 		$Muzzle.rotation_degrees = -90	
-	elif sprite.flip_h == false && aim == 3:
-		$Muzzle.position.x = -1.885
-		$Muzzle.position.y = 27.349
+	elif sprite.flip_h == false && aim == 3: #Aim 3 = GUN DOWN FALL
+		$Muzzle.position.x = -1.522
+		$Muzzle.position.y = 15.448
 		$Muzzle.rotation_degrees = 90		
 	elif sprite.flip_h == true && aim == 3:
-		$Muzzle.position.x = 7.105
-		$Muzzle.position.y = 27.349
+		$Muzzle.position.x = 1.525
+		$Muzzle.position.y = 15.448
 		$Muzzle.rotation_degrees = 90	
-	elif sprite.flip_h == false && aim == 4:
-		$Muzzle.position.x = 21.714
-		$Muzzle.position.y = 3.75
+	elif sprite.flip_h == false && aim == 4: #Aim 4 = CROUCH G
+		$Muzzle.position.x = 6.259
+		$Muzzle.position.y = 7.539
 		$Muzzle.rotation_degrees = 0	
 	elif sprite.flip_h == true && aim == 4:
-		$Muzzle.position.x = -15.704
-		$Muzzle.position.y = 3.75
+		$Muzzle.position.x = -6.441
+		$Muzzle.position.y = 7.539
 		$Muzzle.rotation_degrees = -180				
 func shoot():
 		var b = Bullet.instance()
