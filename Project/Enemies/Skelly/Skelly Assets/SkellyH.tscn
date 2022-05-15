@@ -1,26 +1,27 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Enemies/Skelly/Skelly Assets/Skelly Grafx/SkellyHead.png" type="Texture" id=1]
+[ext_resource path="res://Enemies/Skelly/Skelly Assets/Skelly Grafx/SkellyHeada.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Skelly/Skelly Assets/SkellyH.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 11.5027
+radius = 4.69336
 
 [node name="RigidBody2D" type="RigidBody2D"]
 position = Vector2( 65.25, 24.5 )
+scale = Vector2( 0.4, 0.4 )
 gravity_scale = 10.0
 linear_velocity = Vector2( 0, -300 )
 angular_velocity = 10.0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -11.0002, 5.64873 )
 rotation = -1.06969
+scale = Vector2( 0.323474, 0.323474 )
 texture = ExtResource( 1 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 13.25 )
+position = Vector2( 3.59375, 1.875 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]

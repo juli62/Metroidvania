@@ -1,5 +1,5 @@
 extends "res://StateMachine/State.gd"
-
+var spotted = false
 var goin = false
 	
 # Declare member variables here. Examples:
@@ -12,7 +12,9 @@ func _ready():
 	pass
 func enter():
 	owner.chasing = true
-	owner.spot()
+	if spotted == false:
+		owner.spot()
+		spotted = true
 	print("Dandil")
 	owner.motion.x = 0
 	$"../../Timer".start()
@@ -25,10 +27,10 @@ func _process(delta):
 		owner.motion.x = owner.target.position.x
 		if owner.target.position.x > owner.position.x:
 			$"../../AnimatedSprite".flip_h = false
-			owner.motion.x = -dir.x * 130
+			owner.motion.x = -dir.x * 16
 		if owner.target.position.x < owner.position.x:
 			$"../../AnimatedSprite".flip_h = true
-			owner.motion.x = dir.x * -130
+			owner.motion.x = dir.x * -16
 	if owner.Dead == true:
 		owner.chasing = false		
 	if $"../../Left".is_colliding() == false || $"../../Right".is_colliding() == false:
@@ -43,3 +45,8 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	goin = true
+
+
+func _on_Range_body_entered(body):
+	if body.name == "Player" && owner.Dead == false && owner.chasing == true:
+		emit_signal("finished", "Attack")

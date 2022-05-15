@@ -4,6 +4,7 @@ var shooting = false
 var crouch = false
 var aim_up = false
 var aim
+var rng = RandomNumberGenerator.new()
 export (PackedScene) var Bullet
 
 onready var sprite = $AnimatedSprite
@@ -58,6 +59,8 @@ func shoot():
 		b.transform = $"Muzzle".global_transform
 		$"Muzzle/AudioStreamPlayer2D".play()
 
+
+# Old gravityt and movement system, keeping here for reference
 #	gravity.y = 918
 #	gravity = move_and_slide(gravity)
 ##	
@@ -83,3 +86,7 @@ func shoot():
 #	else:
 #		sprite.play("Idle")	
 #
+
+
+func _on_Skelly_strike():
+	$"../CanvasLayer/Health".value = $"../CanvasLayer/Health".value - rng.randi_range(5 , 15)

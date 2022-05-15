@@ -5,7 +5,7 @@ var motion = Vector2()
 var Dead = false
 var chasing = false
 var jump = false
-
+signal strike
 #Jump calculations { 
 
 export var jump_height : float
@@ -28,7 +28,7 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, Vector2.UP)
 
 	move_and_slide(motion)
-	
+	 
 # Called when the node enters the scene tree for the first time.
 
 	
@@ -36,7 +36,7 @@ func death():
 	motion.x = 0 
 	$"AnimatedSprite".play("Dead")	
 	$"CollisionShape2D".free()
-	
+	$"SkellyFSM/Attack/Range".free()
 	Dead = true
 	head()
 func head():
