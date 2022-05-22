@@ -18,7 +18,7 @@ func _process(delta):
 	if $"../Idle".attack == true && owner.Dead == false:
 		$"../../AnimatedSprite".play("Attack")
 	if $"../../AnimatedSprite".animation == "Attack" && $"../../AnimatedSprite".frame == 2:
-		print("Dankinkolkul")
+		#print("Dankinkolkul")
 		$"../..".emit_signal("strike")
 
 func _on_Range_body_exited(body):

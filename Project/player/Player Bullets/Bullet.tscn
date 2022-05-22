@@ -2,7 +2,7 @@
 
 [ext_resource path="res://player/Player Bullets/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://player/Player Assets/Bullet.png" type="Texture" id=2]
-[ext_resource path="res://Levels/light.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Level assets/light.png" type="Texture" id=3]
 [ext_resource path="res://player/splat.wav" type="AudioStream" id=4]
 [ext_resource path="res://player/Player Assets/Boom .png" type="Texture" id=5]
 
@@ -63,7 +63,7 @@ playing = true
 
 [node name="Light2D" type="Light2D" parent="AnimatedSprite"]
 position = Vector2( -0.717472, -0.159439 )
-scale = Vector2( 1.08751, 1.08751 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 3 )
 texture_scale = 0.2
 color = Color( 0.447059, 0.760784, 0.988235, 1 )

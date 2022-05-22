@@ -15,7 +15,7 @@ func _process(delta):
 	
 	player.aim=1
 	
-	if Input.is_action_just_pressed("p"):	
+	if Input.is_action_just_pressed("Shoot"):	
 		owner.shooting = true
 		player.shoot()
 	if owner.shooting == true && owner.velocity.x != 0 && owner.is_on_floor() && player.crouch == false:

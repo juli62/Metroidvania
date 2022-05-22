@@ -15,7 +15,7 @@ func enter():
 	if spotted == false:
 		owner.spot()
 		spotted = true
-	print("Dandil")
+	#print("Dandil")
 	owner.motion.x = 0
 	$"../../Timer".start()
 	

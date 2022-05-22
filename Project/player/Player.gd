@@ -4,6 +4,7 @@ var shooting = false
 var crouch = false
 var aim_up = false
 var aim
+onready var muzzle = $Muzzle
 var rng = RandomNumberGenerator.new()
 export (PackedScene) var Bullet
 
@@ -22,43 +23,43 @@ func _physics_process(delta):
 		
 	#aiming (if this seems confusing fuck you)
 	if sprite.flip_h == false && aim == 1: #Aim 1 = STANDING
-		$Muzzle.position.x = 6.259
-		$Muzzle.position.y = 4.544
-		$Muzzle.rotation_degrees = 0
+		muzzle.position.x = 6.259
+		muzzle.position.y = 4.544
+		muzzle.rotation_degrees = 0
 	elif sprite.flip_h == true && aim == 1:
-		$Muzzle.position.x = -6.441
-		$Muzzle.position.y = 4.544
-		$Muzzle.rotation_degrees = -180
+		muzzle.position.x = -6.441
+		muzzle.position.y = 4.544
+		muzzle.rotation_degrees = -180
 	elif sprite.flip_h == false && aim == 2: #Aim 2 = AIM UP
-		$Muzzle.position.x = -3.563
-		$Muzzle.position.y = -4.782
-		$Muzzle.rotation_degrees = -90
+		muzzle.position.x = -3.563
+		muzzle.position.y = -4.782
+		muzzle.rotation_degrees = -90
 	elif sprite.flip_h == true && aim == 2:
-		$Muzzle.position.x = 3.481
-		$Muzzle.position.y = -4.782
-		$Muzzle.rotation_degrees = -90	
+		muzzle.position.x = 3.481
+		muzzle.position.y = -4.782
+		muzzle.rotation_degrees = -90	
 	elif sprite.flip_h == false && aim == 3: #Aim 3 = GUN DOWN FALL
-		$Muzzle.position.x = -1.522
-		$Muzzle.position.y = 15.448
-		$Muzzle.rotation_degrees = 90		
+		muzzle.position.x = -1.522
+		muzzle.position.y = 15.448
+		muzzle.rotation_degrees = 90		
 	elif sprite.flip_h == true && aim == 3:
-		$Muzzle.position.x = 1.525
-		$Muzzle.position.y = 15.448
-		$Muzzle.rotation_degrees = 90	
+		muzzle.position.x = 1.525
+		muzzle.position.y = 15.448
+		muzzle.rotation_degrees = 90	
 	elif sprite.flip_h == false && aim == 4: #Aim 4 = CROUCH G
-		$Muzzle.position.x = 6.259
-		$Muzzle.position.y = 7.539
-		$Muzzle.rotation_degrees = 0	
+		muzzle.position.x = 6.259
+		muzzle.position.y = 7.539
+		muzzle.rotation_degrees = 0	
 	elif sprite.flip_h == true && aim == 4:
-		$Muzzle.position.x = -6.441
-		$Muzzle.position.y = 7.539
-		$Muzzle.rotation_degrees = -180				
+		muzzle.position.x = -6.441
+		muzzle.position.y = 7.539
+		muzzle.rotation_degrees = -180				
 func shoot():
 		var b = Bullet.instance()
 		owner.add_child(b)
 		b.transform = $"Muzzle".global_transform
 		$"Muzzle/AudioStreamPlayer2D".play()
-
+		$"../CanvasLayer/Control/Gun/GunBar".value = $"../CanvasLayer/Control/Gun/GunBar".value + 1
 
 # Old gravityt and movement system, keeping here for reference
 #	gravity.y = 918
@@ -89,4 +90,5 @@ func shoot():
 
 
 func _on_Skelly_strike():
-	$"../CanvasLayer/Health".value = $"../CanvasLayer/Health".value - rng.randi_range(5 , 15)
+	#$"../CanvasLayer/Health".value = $"../CanvasLayer/Health".value - rng.randi_range(5 , 15)
+	pass

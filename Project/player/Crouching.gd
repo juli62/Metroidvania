@@ -22,8 +22,8 @@ func _process(delta):
 	if Input.is_action_just_released("ui_down") && player.velocity.x == 0 && player.aim_up == false:
 		emit_signal("finished", "Idle")	
 func exit():
-	
-	print("bobosio")
+	pass
+	#print("bobosio")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

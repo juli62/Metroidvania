@@ -1,7 +1,7 @@
 extends "res://StateMachine/State.gd"
 var attack = false
 var idle = false
-onready var player = get_node("Player")
+#onready var player = get_node("Player")
 var spotted = false
 # Declare member variables here. Examples:
 # var a = 2
@@ -11,7 +11,7 @@ func enter():
 	idle = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("DANKINKIN")
+	#print("DANKINKIN")
 	
 	owner.motion.x = -10
 	owner.move_and_collide(owner.motion)
