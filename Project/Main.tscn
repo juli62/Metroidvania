@@ -863,6 +863,7 @@ script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 material = SubResource( 32 )
+position = Vector2( 136.805, 261.976 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 24.573, 48.028 )

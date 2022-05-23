@@ -5,13 +5,15 @@ var crouch = false
 var aim_up = false
 var aim
 var smoke = false
+var dead = false
 onready var particles = $"Particles2D"
 onready var gun_tween = $"../CanvasLayer/Control/Gun/GunBar/Tween"
 onready var muzzle = $Muzzle
 var rng = RandomNumberGenerator.new()
 export (PackedScene) var Bullet
-
+onready var tween = $Tween
 onready var sprite = $AnimatedSprite
+
 func _ready():
 	pass 
 func _process(delta):
@@ -29,7 +31,8 @@ func _process(delta):
 	particles.position.y = muzzle.position.y
 	
 func _physics_process(delta):
-	
+	if dead == true:
+		velocity.y = 0
 	if velocity.y > 0 && shooting == false:
 		#print(velocity.y)
 		sprite.play("Fall")
@@ -108,7 +111,14 @@ func shoot():
 #
 
 func death():
+	dead = true
 	$"Death".play("Death")
+	tween.interpolate_property($".", "position",
+		self.position, Vector2(320, 184), 2,
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()
+	$"CollisionShape2D".disabled = true
+	
 func hit():
 	$"Hit".play("Hit")
 	rng.randomize()
