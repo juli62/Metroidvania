@@ -23,14 +23,14 @@ func _physics_process(delta):
 #		emit_signal("finished", "Jump")	
 #	elif right && Input.is_action_pressed("jump") && player.is_on_floor():
 #		emit_signal("finished", "Jump")		
-	
-	if left:
-		owner.velocity.x -= run_Speed
-		animation.flip_h = true
-	elif right:
-		owner.velocity.x += run_Speed
-		animation.flip_h = false
-	player.move_and_slide(owner.velocity)
+	if $"../..".dead == false:
+		if left:
+			owner.velocity.x -= run_Speed
+			animation.flip_h = true
+		elif right:
+			owner.velocity.x += run_Speed
+			animation.flip_h = false
+		player.move_and_slide(owner.velocity)
 	if owner.velocity.x == 0 && owner.crouch == false && owner.aim_up == false:
 			emit_signal("finished", "Idle")
 	if left && owner.is_on_floor() && owner.shooting == false:

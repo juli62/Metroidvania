@@ -28,7 +28,8 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, Vector2.UP)
 
 	move_and_slide(motion)
-	 
+	if $ "../Player".dead == true:
+		queue_free()
 # Called when the node enters the scene tree for the first time.
 
 	

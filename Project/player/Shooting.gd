@@ -25,12 +25,14 @@ func _process(delta):
 		animation.play("Gun")
 		player.aim = 1
 	#aim up
-	if Input.is_action_pressed("ui_up"):
-		player.aim_up = true
-	if player.aim_up == true && player.velocity.x == 0:
-		animation.play("Aim_UP")
-		player.aim = 2
-		#print(player.aim_up)
+	
+	if $"../..".dead == false:
+		if Input.is_action_pressed("ui_up"):
+			player.aim_up = true
+		if player.aim_up == true && player.velocity.x == 0:
+			animation.play("Aim_UP")
+			player.aim = 2
+			#print(player.aim_up)
 	elif player.velocity.x != 0:
 		player.aim_up = false
 		#print(player.aim_up)

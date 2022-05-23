@@ -76,7 +76,7 @@ func _physics_process(delta):
 		muzzle.rotation_degrees = -180				
 func shoot():
 	shooting = true
-	if !gun_tween.is_active():
+	if !gun_tween.is_active() && dead == false:
 		var b = Bullet.instance()
 		owner.add_child(b)
 		b.transform = $"Muzzle".global_transform
@@ -112,9 +112,12 @@ func shoot():
 
 func death():
 	dead = true
-	$"Death".play("Death")
+	$"../CanvasLayer/Control".visible = false
+	$"AnimatedSprite".stop()
+	$"AnimatedSprite/ColorRect/Screen Dark".play("Screen")
+	print($"AnimatedSprite/ColorRect/Screen Dark".is_playing())
 	tween.interpolate_property($".", "position",
-		self.position, Vector2(320, 184), 2,
+		self.global_position, $"../Camera2D".global_position + Vector2(0, -50), 2,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 	$"CollisionShape2D".disabled = true
@@ -133,3 +136,7 @@ func _on_Skelly_strike():
 func _on_AudioStreamPlayer2D_finished():
 	smoke = false
 	#This smoke variable ensures the smoke sound plays only once, YES it is spaghetti code, but come on...
+
+
+func _on_Tween_tween_completed(object, key):
+	$"Death".play("Death")

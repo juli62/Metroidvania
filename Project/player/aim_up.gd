@@ -10,8 +10,9 @@ extends "res://player/PlayerFSM/playerState.gd"
 func _ready():
 	pass
 func enter():
-	owner.shooting = true
-	owner.aim_up = true
+	if $"../..".dead == false:
+		owner.shooting = true
+		owner.aim_up = true
 	
 func _process(delta):
 	#air gun stuff

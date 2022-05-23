@@ -13,8 +13,8 @@ onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * 
 onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
 func _physics_process(delta):
-
-	owner.velocity.y += get_gravity() * delta
+	if $"../..".dead == false:
+		owner.velocity.y += get_gravity() * delta
 	
 	if Input.is_action_just_released("jump") && owner.velocity.y < 0:
 		owner.velocity.y = 0
@@ -29,5 +29,6 @@ func jump():
 	owner.velocity.y = jump_velocity
 
 func enter():
-	jump()
+	if $"../..".dead == false:
+		jump()
 		

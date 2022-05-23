@@ -10,9 +10,10 @@ extends "res://player/PlayerFSM/playerState.gd"
 func _ready():
 	pass
 func enter():
-	animation.play("Crouch")
-	#print("brinBAsio")	
-	owner.crouch = true
+	if $"../..".dead == false:
+		animation.play("Crouch")
+		#print("brinBAsio")	
+		owner.crouch = true
 func _process(delta):
 	
 	if player.velocity.x != 0 && owner.is_on_floor():
