@@ -37,7 +37,7 @@ func _physics_process(delta):
 		animation.play("Run")
 	elif right && owner.is_on_floor() && owner.shooting == false:
 		animation.play("Run")		
-	if Input.is_action_pressed("p"):
+	if Input.is_action_pressed("Shoot"):
 		emit_signal("finished", "Shooting")	
 func _ready():
 	pass

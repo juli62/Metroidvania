@@ -23,7 +23,7 @@ func handle_input(event):
 	elif(event.is_action_pressed("jump")):
 		if player.is_on_floor():
 			emit_signal("finished", "Jump")
-	elif (event.is_action_pressed("p")):
+	elif (event.is_action_pressed("Shoot")):
 		emit_signal("finished", "Shooting")	
 	elif (event.is_action_pressed("ui_down")):
 		emit_signal("finished", "Crouching")	

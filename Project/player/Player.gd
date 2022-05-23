@@ -4,6 +4,9 @@ var shooting = false
 var crouch = false
 var aim_up = false
 var aim
+var smoke = false
+onready var particles = $"Particles2D"
+onready var gun_tween = $"../CanvasLayer/Control/Gun/GunBar/Tween"
 onready var muzzle = $Muzzle
 var rng = RandomNumberGenerator.new()
 export (PackedScene) var Bullet
@@ -11,6 +14,17 @@ export (PackedScene) var Bullet
 onready var sprite = $AnimatedSprite
 func _ready():
 	pass 
+func _process(delta):
+	if gun_tween.is_active():
+		particles.emitting = true
+		if smoke == false:
+			$"Particles2D/AudioStreamPlayer2D".play()
+			smoke = true
+	elif !gun_tween.is_active():
+		particles.emitting = false	
+	particles.position.x = muzzle.position.x
+	particles.position.y = muzzle.position.y
+	
 func _physics_process(delta):
 	
 	if velocity.y > 0 && shooting == false:
@@ -55,12 +69,13 @@ func _physics_process(delta):
 		muzzle.position.y = 7.539
 		muzzle.rotation_degrees = -180				
 func shoot():
+	if !gun_tween.is_active():
 		var b = Bullet.instance()
 		owner.add_child(b)
 		b.transform = $"Muzzle".global_transform
 		$"Muzzle/AudioStreamPlayer2D".play()
 		$"../CanvasLayer/Control/Gun/GunBar".value = $"../CanvasLayer/Control/Gun/GunBar".value + 1
-
+		
 # Old gravityt and movement system, keeping here for reference
 #	gravity.y = 918
 #	gravity = move_and_slide(gravity)
@@ -90,5 +105,9 @@ func shoot():
 
 
 func _on_Skelly_strike():
-	#$"../CanvasLayer/Health".value = $"../CanvasLayer/Health".value - rng.randi_range(5 , 15)
-	pass
+	$"../CanvasLayer2/Control/Health Bar/Health Bar".value = $"../CanvasLayer2/Control/Health Bar/Health Bar".value - 1
+
+
+func _on_AudioStreamPlayer2D_finished():
+	smoke = false
+	#This smoke variable ensures the smoke sound plays only once, YES it is spaghetti code, but come on...

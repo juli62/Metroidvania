@@ -871,8 +871,8 @@ zoom = Vector2( 0.5, 0.5 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource( 3 )]
-margin_left = 8.4509
-margin_top = 8.66198
-margin_right = 8.45093
-margin_bottom = 8.66193
-rect_scale = Vector2( 2.28, 2.28 )
+margin_left = 25.2269
+margin_top = 22.2838
+margin_right = 25.2269
+margin_bottom = 22.2838
+rect_scale = Vector2( 2.32, 2.32 )
