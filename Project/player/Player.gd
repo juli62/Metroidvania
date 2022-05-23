@@ -22,6 +22,9 @@ func _process(delta):
 			smoke = true
 	elif !gun_tween.is_active():
 		particles.emitting = false	
+	if shooting == false:
+		particles.emitting = false
+		
 	particles.position.x = muzzle.position.x
 	particles.position.y = muzzle.position.y
 	
@@ -69,6 +72,7 @@ func _physics_process(delta):
 		muzzle.position.y = 7.539
 		muzzle.rotation_degrees = -180				
 func shoot():
+	shooting = true
 	if !gun_tween.is_active():
 		var b = Bullet.instance()
 		owner.add_child(b)
@@ -103,10 +107,18 @@ func shoot():
 #		sprite.play("Idle")	
 #
 
-
+func death():
+	$"Death".play("Death")
+func hit():
+	$"Hit".play("Hit")
+	rng.randomize()
+	$"Hit/Hit_sound".pitch_scale = rng.randf_range(0.5, 1.5)
+	$"Hit/Hit_sound".play()
+	if $"../CanvasLayer/Control/Health Bar/Health Bar".value <= 0:
+		death()
 func _on_Skelly_strike():
-	$"../CanvasLayer2/Control/Health Bar/Health Bar".value = $"../CanvasLayer2/Control/Health Bar/Health Bar".value - 1
-
+	$"../CanvasLayer/Control/Health Bar/Health Bar".value = $"../CanvasLayer/Control/Health Bar/Health Bar".value - 1
+	hit()
 
 func _on_AudioStreamPlayer2D_finished():
 	smoke = false
