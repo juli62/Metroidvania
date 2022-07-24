@@ -56,7 +56,6 @@ texture = ExtResource( 2 )
 [node name="Area2D" type="Area2D" parent="Spotted"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spotted/Area2D"]
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

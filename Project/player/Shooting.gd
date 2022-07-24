@@ -71,3 +71,6 @@ func _process(delta):
 	if Input.is_action_pressed("jump") && player.is_on_floor():
 		emit_signal("finished", "Jump")
 
+
+
+

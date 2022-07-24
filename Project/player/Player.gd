@@ -11,11 +11,12 @@ onready var gun_tween = $"../CanvasLayer/Control/Gun/GunBar/Tween"
 onready var muzzle = $Muzzle
 var rng = RandomNumberGenerator.new()
 export (PackedScene) var Bullet
+export (PackedScene) var death_sc
 onready var tween = $Tween
 onready var sprite = $AnimatedSprite
 
 func _ready():
-	pass 
+	$"Hit".play("Hit")
 func _process(delta):
 	if gun_tween.is_active():
 		particles.emitting = true
@@ -113,7 +114,7 @@ func shoot():
 func death():
 	dead = true
 	$"../CanvasLayer/Control".visible = false
-	$"AnimatedSprite".stop()
+	$"AnimatedSprite".playing = false
 	$"AnimatedSprite/ColorRect/Screen Dark".play("Screen")
 	print($"AnimatedSprite/ColorRect/Screen Dark".is_playing())
 	tween.interpolate_property($".", "position",
@@ -129,9 +130,19 @@ func hit():
 	$"Hit/Hit_sound".play()
 	if $"../CanvasLayer/Control/Health Bar/Health Bar".value <= 0:
 		death()
+
+
+#STRIKES beginning
+
 func _on_Skelly_strike():
 	$"../CanvasLayer/Control/Health Bar/Health Bar".value = $"../CanvasLayer/Control/Health Bar/Health Bar".value - 1
 	hit()
+func _on_Slimey_strike():
+	$"../CanvasLayer/Control/Health Bar/Health Bar".value = $"../CanvasLayer/Control/Health Bar/Health Bar".value - 1
+	hit()
+	print("konk")
+#STRIKES end
+
 
 func _on_AudioStreamPlayer2D_finished():
 	smoke = false
@@ -140,3 +151,14 @@ func _on_AudioStreamPlayer2D_finished():
 
 func _on_Tween_tween_completed(object, key):
 	$"Death".play("Death")
+
+
+func _on_Death_animation_finished(anim_name):
+	var d = death_sc.instance()
+	owner.add_child(d)
+	d.global_position = self.global_position
+	#get_tree().change_scene("res://HUD elements/Death Screen/Death_Screen.tscn")
+
+
+
+	

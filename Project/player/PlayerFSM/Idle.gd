@@ -12,8 +12,9 @@ func _ready():
 
 func enter():
 	owner.crouch = false
-	if  owner.velocity.y == 0 && owner.shooting == false && owner.crouch == false && owner.aim_up == false:
-		animation.play("Idle")
+	if $"../..".dead == false:
+		if  owner.velocity.y == 0 && owner.shooting == false && owner.crouch == false && owner.aim_up == false:
+			animation.play("Idle")
 	
 func handle_input(event):
 	if(event.is_action_pressed("ui_left")):
